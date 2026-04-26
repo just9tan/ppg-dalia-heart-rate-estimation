@@ -59,7 +59,7 @@ ppg-dalia-heart-rate-estimation/
 
 The system follows a subject-level evaluation pipeline for estimating heart rate from wrist PPG and accelerometer signals.
 
-![Pipeline overview](assets/pipeline_overview.png)
+![Pipeline overview](assets/pipeline_overview1.png)
 
 ```text
 PPG-Dalia subject files
