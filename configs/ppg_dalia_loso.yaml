@@ -1,5 +1,4 @@
-experiment_name: v12_ssl_belief_moe
-
+experiment_name: ppg_dalia_loso
 dataset:
   bvp_fs: 64
   acc_fs: 32
