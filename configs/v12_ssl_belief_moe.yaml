@@ -1,0 +1,51 @@
+experiment_name: v12_ssl_belief_moe
+
+dataset:
+  bvp_fs: 64
+  acc_fs: 32
+  win_sec: 8
+  step_sec: 2
+  act_fs: 4
+  hr_min_bpm: 40.0
+  hr_max_bpm: 200.0
+
+training:
+  batch: 128
+  epochs: 75
+  lr: 0.00035
+  min_lr: 0.00001
+  weight_decay: 0.0001
+  patience: 12
+  grad_clip: 1.0
+  amp: true
+  ema_decay: 0.997
+  val_k: 3
+
+model:
+  base_ch: 32
+  dropout: 0.18
+  seq_len: 12
+  seq_d_model: 128
+  seq_heads: 4
+  seq_layers: 3
+  seq_ff_mult: 4
+  seq_dropout: 0.15
+
+preprocessing:
+  use_offline_adaptive: true
+  adaptive_lags: 3
+  adaptive_ridge: 0.01
+  adaptive_use_derivative: true
+  adaptive_activity_chunk_norm: true
+  adaptive_norm_clip: 5.0
+
+postprocess:
+  medfilt_k: 5
+  retained_sigma_max: 8.0
+  sqi_t_low: 0.42
+  sqi_t_high: 0.60
+
+outputs:
+  plot_dir: plots_ppg_v12_ssl_belief_moe
+  result_csv: strict_loso_results_v12_ssl_belief_moe.csv
+  result_activity_csv: strict_loso_results_by_activity_v12_ssl_belief_moe.csv
