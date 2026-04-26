@@ -57,14 +57,16 @@ ppg-dalia-heart-rate-estimation/
 
 ## Method Pipeline
 
-The system follows a subject-level evaluation pipeline:
+The system follows a subject-level evaluation pipeline for estimating heart rate from wrist PPG and accelerometer signals.
+
+![Pipeline overview](assets/pipeline_overview.png)
 
 ```text
 PPG-Dalia subject files
         ↓
 Load wrist BVP, wrist ACC, HR labels, and activity labels
         ↓
-Extract synchronized PPG and ACC windows
+Extract synchronized 8-second PPG and ACC windows
         ↓
 Resample ACC and normalize wearable signals
         ↓
@@ -211,7 +213,23 @@ You can summarize subject-wise results with:
 python scripts/summarize_results.py --csv strict_loso_results.csv
 ```
 
-Full tuned experimental settings and manuscript-specific results may be released after publication, subject to publication and co-author policy.
+### Qualitative Prediction Examples
+
+The following examples compare the reference heart rate and the predicted heart rate over time. The blue curve represents the reference heart rate, while the orange dashed curve represents the model prediction. The shaded background regions indicate different activity segments.
+
+#### Representative subject example
+
+Subject S7 is used as a representative qualitative example. The predicted heart-rate curve follows the overall reference trend across both resting and dynamic activity periods, including several rapid increases and recovery phases.
+
+![S7 prediction timeline](assets/timeline_s7_example.png)
+
+#### Challenging subject example
+
+Subject S5 is shown as a more challenging example. This case contains larger heart-rate peaks and stronger motion-related variability. The prediction follows the overall temporal trend, but larger deviations appear during high-intensity or rapidly changing segments, reflecting the remaining difficulty of wrist-based PPG heart-rate estimation under motion artifacts.
+
+![S5 prediction timeline](assets/timeline_s5_challenging_example.png)
+
+Full tuned experimental settings and manuscript-specific quantitative results may be released after publication, subject to publication and co-author policy.
 
 ---
 
