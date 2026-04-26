@@ -1,0 +1,14 @@
+PPG-Dalia Heart Rate Estimation
+
+Copyright 2026 Ly Chinh Tan
+
+This repository contains research code for heart rate estimation from wrist-worn
+PPG and accelerometer signals using the PPG-Dalia dataset.
+
+The source code is licensed under the Apache License 2.0.
+
+The PPG-Dalia dataset is not included in this repository and remains subject to
+its original license, access conditions, and citation requirements.
+
+The manuscript, paper figures, publication text, and third-party materials are
+not covered by this software license unless explicitly stated.
